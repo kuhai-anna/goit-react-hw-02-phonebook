@@ -29,14 +29,19 @@ export class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
-  render() {
+  getVisibleContacts = () => {
     const { contacts, filter } = this.state;
-
-    // фільтрація контактів
     const normalizeFilter = filter.toLowerCase();
-    const visibleContacts = contacts.filter(({ name }) =>
+
+    return contacts.filter(({ name }) =>
       name.toLowerCase().includes(normalizeFilter)
     );
+  };
+
+  render() {
+    const { filter } = this.state;
+
+    const visibleContacts = this.getVisibleContacts();
 
     return (
       <>
