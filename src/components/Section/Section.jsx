@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
-import { Container, SectionTitle, SectionWrapper } from './Section.styled';
+import {
+  Container,
+  MainTitle,
+  SectionTitle,
+  SectionWrapper,
+} from './Section.styled';
 
 export const Section = ({ mainTitle, title, children }) => {
   return (
     <SectionWrapper>
       <Container>
         {mainTitle ? (
-          <h1>{mainTitle}</h1>
+          <MainTitle>{mainTitle}</MainTitle>
         ) : (
           <SectionTitle>{title}</SectionTitle>
         )}

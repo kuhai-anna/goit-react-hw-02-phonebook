@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 export const SectionWrapper = styled.section`
   padding: 24px 0;
-
-  :nth-child(even) {
-    background-color: ${props => {
-      return props.theme.colors.background;
-    }};
-  }
 `;
 
 export const Container = styled.div`
@@ -18,12 +12,24 @@ export const Container = styled.div`
   }};
 `;
 
+export const MainTitle = styled.h1`
+  margin-bottom: ${props => {
+    return props.theme.spacing(5);
+  }};
+
+  font-size: 30px;
+  text-align: center;
+  color: ${props => {
+    return props.theme.colors.text;
+  }};
+`;
+
 export const SectionTitle = styled.h2`
   margin-bottom: ${props => {
     return props.theme.spacing(4);
   }};
 
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
   color: ${props => {
     return props.theme.colors.text;
