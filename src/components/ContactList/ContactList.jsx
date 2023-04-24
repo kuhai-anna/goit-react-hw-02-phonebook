@@ -1,15 +1,22 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { ContactListItem } from './ContactListItem/ContactListItem';
 
 export const ContactList = ({ contacts }) => {
   return (
     <ul>
-      {contacts.map(contact => {
-        return (
-          <li key={contact.id}>
-            <p>{contact.name}</p>
-          </li>
-        );
-      })}
+      {contacts.map(({ id, name, number }) => (
+        <ContactListItem key={id} name={name} number={number} />
+      ))}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
