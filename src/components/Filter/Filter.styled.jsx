@@ -3,40 +3,25 @@ import styled from 'styled-components';
 export const FilterLabel = styled.label`
   display: flex;
   flex-direction: column;
-  margin-bottom: ${props => {
-    return props.theme.spacing(8);
-  }};
+  margin-bottom: ${props => props.theme.spacing(8)};
 `;
 
 export const FilterLabelText = styled.span`
-  margin-bottom: ${props => {
-    return props.theme.spacing(1);
-  }};
+  margin-bottom: ${props => props.theme.spacing(1)};
 
-  color: ${props => {
-    return props.theme.colors.text;
-  }};
+  color: ${props => props.theme.colors.text};
   font-weight: 500;
   font-size: 18px;
 `;
 
 export const FilterField = styled.input`
   padding: 4px 8px;
-  width: ${props => {
-    return props.theme.spacing(75.5);
-  }};
+  width: ${props => props.theme.spacing(75.5)};
 
   outline: none;
-  border: 1px solid
-    ${props => {
-      return props.theme.colors.border;
-    }};
-  border-radius: ${props => {
-    return props.theme.spacing(1);
-  }};
-  background-color: ${props => {
-    return props.theme.colors.bgd;
-  }};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.spacing(1)};
+  background-color: ${props => props.theme.colors.bgd};
 
   transition-property: border-color;
   transition-duration: 250ms;
@@ -44,8 +29,6 @@ export const FilterField = styled.input`
 
   :hover,
   :focus {
-    border-color: ${props => {
-      return props.theme.colors.borderHover;
-    }};
+    border-color: ${props => props.theme.colors.borderHover};
   }
 `;

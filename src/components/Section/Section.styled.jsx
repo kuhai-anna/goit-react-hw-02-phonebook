@@ -7,31 +7,21 @@ export const SectionWrapper = styled.section`
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 16px;
-  width: ${props => {
-    return props.theme.spacing(80);
-  }};
+  width: ${props => props.theme.spacing(80)};
 `;
 
 export const MainTitle = styled.h1`
-  margin-bottom: ${props => {
-    return props.theme.spacing(5);
-  }};
+  margin-bottom: ${props => props.theme.spacing(5)};
 
   font-size: 30px;
   text-align: center;
-  color: ${props => {
-    return props.theme.colors.text;
-  }};
+  color: ${props => props.theme.colors.text};
 `;
 
 export const SectionTitle = styled.h2`
-  margin-bottom: ${props => {
-    return props.theme.spacing(4);
-  }};
+  margin-bottom: ${props => props.theme.spacing(4)};
 
   font-size: 24px;
   text-align: center;
-  color: ${props => {
-    return props.theme.colors.text;
-  }};
+  color: ${props => props.theme.colors.text};
 `;

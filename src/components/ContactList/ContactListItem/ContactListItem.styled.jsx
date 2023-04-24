@@ -6,18 +6,14 @@ export const ContactItem = styled.li`
   align-items: center;
 
   :not(:last-of-type) {
-    margin-bottom: ${props => {
-      return props.theme.spacing(2);
-    }};
+    margin-bottom: ${props => props.theme.spacing(2)};
   }
 `;
 
 export const Contact = styled.p`
   display: block;
 
-  color: ${props => {
-    return props.theme.colors.text;
-  }};
+  color: ${props => props.theme.colors.text};
 `;
 
 export const ContactName = styled.span`
@@ -29,9 +25,7 @@ export const DeleteButton = styled.button`
 
   outline: none;
   border: 1px solid transparent;
-  border-radius: ${props => {
-    return props.theme.spacing(1);
-  }};
+  border-radius: ${props => props.theme.spacing(1)};
   background-color: ${props => {
     return props.theme.colors.btn;
   }};
@@ -45,11 +39,7 @@ export const DeleteButton = styled.button`
 
   :hover,
   :focus {
-    background-color: ${props => {
-      return props.theme.colors.btnHover;
-    }};
-    border-color: ${props => {
-      return props.theme.colors.borderHover;
-    }};
+    background-color: ${props => props.theme.colors.btnHover};
+    border-color: ${props => props.theme.colors.borderHover};
   }
 `;
