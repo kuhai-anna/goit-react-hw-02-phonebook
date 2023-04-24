@@ -16,12 +16,14 @@ export class ContactForm extends Component {
   nameInputId = nanoid();
   numberInputId = nanoid();
 
+  // введення значень в інпут
   handleChange = e => {
     const { name, value } = e.currentTarget;
 
     this.setState({ [name]: value });
   };
 
+  // додавання контакту
   addContact = e => {
     e.preventDefault();
 
