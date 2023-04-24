@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { Component } from 'react';
 import { GlobalStyle } from 'GlobalStyle';
 import { Section } from './Section/Section';
@@ -8,46 +7,45 @@ import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
   state = {
-    contacts: [],
-    name: '',
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
   };
 
-  nameId = nanoid();
-
-  entryContactName = e => {
-    this.setState({ name: e.target.value });
+  // додавання контактів
+  formSubmitHandler = contact => {
+    console.log(contact);
+    this.setState(({ contacts }) => ({
+      contacts: [...contacts, contact],
+    }));
   };
 
-  addContactName = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const name = form.elements.name.value;
-
-    // Кожен контакт повинен бути об'єктом з властивостями name та id.
-
-    this.setState(prevState => {
-      prevState.contacts.push({ name: name, id: this.nameId });
-    });
-
-    console.log(this.state.contacts);
-    form.reset();
+  // фільтрація контактів
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
   };
 
   render() {
-    const { contacts, name } = this.state;
+    const { contacts, filter } = this.state;
+
+    // фільтрація контактів
+    const normalizeFilter = filter.toLowerCase();
+    const visibleContacts = contacts.filter(({ name }) =>
+      name.toLowerCase().includes(normalizeFilter)
+    );
 
     return (
       <>
         <Section mainTitle="Phonebook">
-          <ContactForm
-            name={name}
-            onEntryContactName={this.entryContactName}
-            onAddContactName={this.addContactName}
-          />
+          <ContactForm onSubmit={this.formSubmitHandler} />
         </Section>
         <Section title="Contacts">
-          <Filter />
-          <ContactList contacts={contacts} />
+          <Filter value={filter} onChangeFilter={this.changeFilter} />
+          <ContactList contacts={visibleContacts} />
         </Section>
         <GlobalStyle />
       </>
