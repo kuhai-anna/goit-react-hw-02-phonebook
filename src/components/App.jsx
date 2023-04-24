@@ -16,12 +16,17 @@ export class App extends Component {
     filter: '',
   };
 
-  // додавання контактів
+  // перевірка і додавання нових контактів
   formSubmitHandler = contact => {
-    console.log(contact);
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, contact],
-    }));
+    const { contacts } = this.state;
+    const normalizeNewName = contact.name.toLowerCase();
+    const nameList = contacts.map(contact => contact.name.toLowerCase());
+
+    nameList.includes(normalizeNewName)
+      ? alert(`${contact.name} is already in contacts.`)
+      : this.setState(({ contacts }) => ({
+          contacts: [...contacts, contact],
+        }));
   };
 
   // фільтрація контактів
@@ -38,6 +43,13 @@ export class App extends Component {
     );
   };
 
+  // видалення контакта
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
@@ -49,7 +61,10 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter value={filter} onChangeFilter={this.changeFilter} />
-          <ContactList contacts={visibleContacts} />
+          <ContactList
+            contacts={visibleContacts}
+            onDelete={this.deleteContact}
+          />
         </Section>
         <GlobalStyle />
       </>
