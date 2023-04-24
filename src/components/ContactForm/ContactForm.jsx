@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
+import {
+  Field,
+  Form,
+  FormButton,
+  FormField,
+  FormLabel,
+} from './ContactForm.styled';
 
 export class ContactForm extends Component {
   static propTypes = {
@@ -43,13 +50,11 @@ export class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.addContact}>
+      <Form onSubmit={this.addContact}>
         {/* form field */}
-        <div>
-          <label htmlFor={this.nameInputId}>
-            <span>Name</span>
-          </label>
-          <input
+        <FormField>
+          <FormLabel htmlFor={this.nameInputId}>Name</FormLabel>
+          <Field
             id={this.nameInputId}
             value={name}
             onChange={this.handleChange}
@@ -59,12 +64,10 @@ export class ContactForm extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-        </div>
-        <div>
-          <label htmlFor={this.numberInputId}>
-            <span>Number</span>
-          </label>
-          <input
+        </FormField>
+        <FormField>
+          <FormLabel htmlFor={this.numberInputId}>Number</FormLabel>
+          <Field
             id={this.numberInputId}
             value={number}
             onChange={this.handleChange}
@@ -74,9 +77,9 @@ export class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-        </div>
-        <button type="submit">Add contact</button>
-      </form>
+        </FormField>
+        <FormButton type="submit">Add contact</FormButton>
+      </Form>
     );
   }
 }
