@@ -2,6 +2,7 @@ export const theme = {
   colors: {
     text: '#212121',
     textAccent: '#ffffff',
+    textError: '#ff6b6b',
     bgd: '#f4f4f4',
     bgdAccent: '#d2d2d2',
     border: '#d2d2d2',
