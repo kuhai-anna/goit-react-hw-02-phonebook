@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import {
+  Field as FormikField,
+  Form as FormikForm,
+  ErrorMessage as Message,
+} from 'formik';
 
-export const Form = styled.form`
+export const Form = styled(FormikForm)`
   margin: 0 auto;
   padding: ${props => props.theme.spacing(4)};
   width: ${props => props.theme.spacing(72)};
@@ -29,7 +34,7 @@ export const FormLabel = styled.label`
   font-weight: 500;
 `;
 
-export const Field = styled.input`
+export const Field = styled(FormikField)`
   padding: 4px 8px;
   width: ${props => props.theme.spacing(67.5)};
 
@@ -67,4 +72,12 @@ export const FormButton = styled.button`
     background-color: ${props => props.theme.colors.btnHover};
     border-color: ${props => props.theme.colors.borderHover};
   }
+`;
+
+export const ErrorMessage = styled(Message)`
+  margin-top: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  color: ${props => props.theme.colors.textError};
 `;
